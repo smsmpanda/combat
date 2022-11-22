@@ -1,4 +1,1 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const mock_1 = require("./api/mock");
-console.log(new mock_1.Mock().GetUserList());
+(()=>{"use strict";var e={830:(e,s,r)=>{Object.defineProperty(s,"__esModule",{value:!0}),s.Mock=void 0;const t=r(159);s.Mock=class{constructor(){this.Users=[]}GetUserList(){let e=[];for(let s=0;s<30;s++)e.push(new t.User(`User-${s}`,s%2==0?"meal":"femeal"));return e}}},159:(e,s)=>{Object.defineProperty(s,"__esModule",{value:!0}),s.User=void 0,s.User=class{constructor(e,s){this.Name=e,this.Sex=s}}}},s={};function r(t){var o=s[t];if(void 0!==o)return o.exports;var c=s[t]={exports:{}};return e[t](c,c.exports,r),c.exports}(()=>{const e=r(830);console.log((new e.Mock).GetUserList())})()})();

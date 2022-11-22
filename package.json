@@ -1,0 +1,30 @@
+{
+  "name": "kungfutypescript",
+  "version": "1.0.0",
+  "description": "Learning",
+  "main": "app.js",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smsmpanda/KungfuTypeScript.git"
+  },
+  "keywords": [
+    "TypeScript"
+  ],
+  "author": "smsmpanda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smsmpanda/KungfuTypeScript/issues"
+  },
+  "homepage": "https://github.com/smsmpanda/KungfuTypeScript#readme",
+  "dependencies": {
+    "ts-loader": "^9.4.1",
+    "webpack": "^5.75.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^5.0.0"
+  }
+}

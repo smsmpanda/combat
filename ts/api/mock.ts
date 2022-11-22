@@ -8,7 +8,7 @@ class Mock {
 
     public GetUserList(): User[] {
         let users = [];
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 30; i++) {
             users.push(new User(`User-${i}`, i % 2 == 0 ? 'meal' : 'femeal'));
         }
         return users;
