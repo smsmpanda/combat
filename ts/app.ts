@@ -180,3 +180,132 @@ console.log(c1)
 
 
 console.log('interface');
+
+
+interface IPerson {
+    firstName: string,
+    lastName: string,
+    sayHi: () => string
+}
+
+var customer: IPerson = {
+    firstName: 'Tom',
+    lastName: 'Smith',
+    sayHi() {
+        return 'Hi ' + this.firstName + ' ' + this.lastName
+    }
+}
+
+console.log("Customer 对象 ")
+console.log(customer.firstName)
+console.log(customer.lastName)
+console.log(customer.sayHi())
+
+interface namelist {
+    [index: number]: string
+}
+
+var list2: namelist = ["Google", "Runoob", "Taobao"]
+
+interface ages {
+    [index: string]: number
+}
+var agelist: ages;
+// agelist["a"] = 12;
+
+interface Person {
+    age: number
+}
+
+interface Musician extends Person {
+    instrument: string
+}
+
+var drummer = <Musician>{};
+drummer.age = 21;
+drummer.instrument = 'Drums';
+
+console.log('class');
+
+class Person {
+    firstName: string;
+    lastName: string;
+    constructor(firstName: string, lastName: string) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    dispay() {
+        console.log(this.firstName + ' ' + this.lastName)
+    }
+}
+var aperson = new Person("Smsmpanda", 'Kung Fu');
+aperson.dispay();
+
+
+class Shape {
+    Area: number
+
+    constructor(a: number) {
+        this.Area = a
+    }
+    pmth(): void {
+        console.log('the parents method.')
+    }
+}
+class Circle extends Shape {
+    disp(): void {
+        console.log("圆的面积:  " + this.Area)
+    }
+    pmth(): void {
+        console.log('the kids method.')
+    }
+}
+
+var obj = new Circle(223);
+obj.disp();
+obj.pmth()
+
+
+var obj = new Circle(12)
+var isPerson = obj instanceof Person;
+console.log("obj 对象是 Person 类实例化来的吗？ " + isPerson);
+isPerson = obj instanceof Circle;
+console.log("obj 对象是 Person 类实例化来的吗？ " + isPerson);
+
+
+interface ILoan {
+    interest: number
+}
+class AgriLoan implements ILoan {
+    interest: number
+    rebate: number
+
+    constructor(interest: number, rebate: number) {
+        this.interest = interest
+        this.rebate = rebate
+    }
+}
+
+console.log('TypeScript 对象')
+var obj_name = {
+    key1: 'value1',
+    ke2: 'value2',
+    key3: function () {
+        alert('my name is key3')
+    },
+    key4: ["c1", 'c2']
+}
+
+var sites = {
+    site1: "Runoob",
+    site2: "Google",
+    sayHello: function () { } 
+};
+
+console.log(sites.site1)
+console.log(sites.site2)
+sites.sayHello = function () {
+    console.log("hello " + sites.site1);
+}
+
+sites.sayHello();
