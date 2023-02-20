@@ -4,6 +4,6 @@
     "jsx": "preserve",
     "allowSyntheticDefaultImports": true,                           
   },
-  "include": ["ts/**/*", "src/mock.ts", "src/user.ts", "src/index.ts"],
+  "include": ["ts/**/*", "src/index.ts", "src/models/user.ts"],
   "exclude": ["node_modules/*"]
 }

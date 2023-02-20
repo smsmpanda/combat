@@ -1,18 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <h1>Kung Fu TypeScript</h1>
-    <div>
-        <input type="text" name="name" />
-        <button id="btnGetUser">Get Users</button>
-        <table id="kftable"></table>
+    <div id="demo">
+        <h1>{{appName}}</h1>
+        <div>
+            <input type="text" name="name" />
+            <button id="btnGetUser">Get Users</button>
+            <table id="kftable"></table>
+        </div>
+        <button v-on:click="add">Add</button>
+        <button v-on:click="remove">Remove</button>
+        <table>
+            <thead>
+                <th>FId</th>
+                <th>FName</th>
+                <th>Flocation</th>
+            </thead>
+            <tbody>
+                <tr v-for="family in superFamily._families">
+                    <td>{{family.fID}}</td>
+                    <td>{{family.fName}}</td>
+                    <td>{{family.fLocation.LocationX}}</td>
+                    <td>{{family.fLocation.LocationY}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <script src="./src/main.js"></script>
 </body>
+
 </html>

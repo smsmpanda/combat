@@ -1,36 +1,25 @@
-import { Mock } from "./mock";
-
-var mock = new Mock();
-
-function getByUserID(id: number) {
-    return mock.GetUserById(id);
-}
-
-function getUserList() {
-    return mock.GetUserList();
-}
-
-function renderView() {
-    var tab = document.getElementById('kftable');
-    mock.GetUserList().forEach(user => {
-        let tr = document.createElement('tr');
-        let tdForUserId = document.createElement('td');
-        tdForUserId.innerText = user.ID.toString();
-        let tdForUserName = document.createElement('td');
-        tdForUserName.innerText = user.Name;
-        let tdForUserSex = document.createElement('td');
-        tdForUserSex.innerText = user.Sex;
-        tr.appendChild(tdForUserId);
-        tr.appendChild(tdForUserName);
-        tr.appendChild(tdForUserSex);
-        tab?.appendChild(tr);
-    });
-}
-
-renderView()
+import * as  user from "./models/user";
+import Vue from "vue/dist/vue.esm"
 
 
-const key = ['H', 'e', 'l', 'l', 'o']
-const f = key.map(x => `${x}`);
-console.log(f);
-console.log('aad');
+new Vue({
+    el: "#demo",
+    data() {
+        return {
+            appName: '测试Demo',
+            superFamily : new user.SuperFamily()
+        }
+    },
+    mounted() {
+        this.superFamily.AddFamily(new user.Family(1, '第No.101家', new user.Location(12, 14)))
+        console.log(this.superFamily)
+    },
+    methods: {
+        add: function () {
+            this.superFamily.AddFamily(new user.Family(1, '第No.101家', new user.Location(12, 14)))
+        },
+        remove:function(){
+
+        }
+    }
+})

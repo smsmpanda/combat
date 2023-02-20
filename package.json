@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/smsmpanda/KungfuTypeScript#readme",
   "dependencies": {
+    "vue": "^2.7.14",
     "webpack": "^5.75.0"
   },
   "devDependencies": {
