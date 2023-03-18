@@ -1,9 +1,10 @@
 const path = require('path');
+const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: 'development',
-    entry: './src/index.ts',
+    entry: './src/main.js',
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
@@ -11,7 +12,8 @@ module.exports = {
     module: {
         rules: [
             { test: /\.tsx?$/, use: 'babel-loader' },
-            { test: /\.css$/, use: ["style-loader", "css-loader"] }
+            { test: /\.css$/, use: ["style-loader", "css-loader"] },
+            { test: /\.vue$/, use: "vue-loader" }
         ]
     },
     resolve: {
@@ -19,9 +21,10 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'index.html',
+            template: './src/index.html',
             favicon: path.resolve('favicon.ico')
-        })
+        }),
+        new VueLoaderPlugin()
     ],
     devServer: {
         static: './dist'

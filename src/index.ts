@@ -1,6 +1,8 @@
 import * as  user from "./models/user";
 import Vue from "vue/dist/vue.esm"
+import ElementUI from "element-ui";
 
+Vue.use(ElementUI)
 
 new Vue({
     el: "#demo",
@@ -18,8 +20,8 @@ new Vue({
         add: function () {
             this.superFamily.AddFamily(new user.Family(1, '第No.101家', new user.Location(12, 14)))
         },
-        remove:function(){
-
+        del:function(fID:number){
+            this.superFamily.RemoveFamily(fID)
         }
     }
 })
