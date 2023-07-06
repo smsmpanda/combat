@@ -1,19 +1,13 @@
-# kungfuchild
+# 🤞 kung Fu TypeScript Devlopment Template ❗
+---
+#### 👉 操作指南
+>
+* 项目启动
+    > `npm run dev`
+* 项目打包
+    > `npm run build`
+#### 👉 接口访问（Open API）
+* https://api.apiopen.top
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+#### ❓️ 说明
+* 学习`vue3`、`element-plus`、`TypeScript`、`WebPack`的基础用法
