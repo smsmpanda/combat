@@ -103,6 +103,6 @@ export default defineComponent({
 
 .nav-menu {
     position: sticky;
-    top: 62px;
+    top: 65px;
 }
 </style>

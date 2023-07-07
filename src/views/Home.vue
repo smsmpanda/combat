@@ -10,7 +10,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Navmenu from '../components/Navmenu.vue';
+import Navmenu from '@/components/Navmenu.vue';
 
 
 export default defineComponent({
@@ -26,7 +26,7 @@ export default defineComponent({
 
 <style>
 .home-content-container {
-    padding: 10px
+    padding: 0 10px
 }
 
 
