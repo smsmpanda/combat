@@ -1,7 +1,8 @@
 <template>
     <div class="nav-menu">
-        <el-menu default-active="1-1" class="el-menu-vertical-demo" :collapse="data.isCollapse" :router="true">
-            <el-sub-menu>
+        <el-menu :default-openeds="['1']" default-active="/home/posts" class="el-menu-vertical-demo"
+            :collapse="data.isCollapse" :router="true">
+            <el-sub-menu index="1">
                 <template #title>
                     <el-icon>
                         <location />
@@ -86,7 +87,7 @@ export default defineComponent({
     setup() {
 
         let data = reactive({
-            isCollapse: false
+            isCollapse: false,
         })
         return {
             data,

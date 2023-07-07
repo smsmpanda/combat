@@ -5,8 +5,9 @@ export class Post {
     public id: number
     public title: string
     public body: string
-    public commontes: Array<PostComment>
-    public isshowComment: boolean
+    public comments: Array<PostComment>
+    public isloadedComment: boolean
+    public givelikeCount: number
 }
 
 export class PostComment {
@@ -15,8 +16,10 @@ export class PostComment {
     public name: string
     public body: string
     public email: string
+    public givelikeCount: number
 }
 
+//#region  posts
 export async function getPostsAsync(): Promise<Array<Post>> {
     try {
         const response = await service.get<Array<Post>>(urls.getPosts)
@@ -26,6 +29,16 @@ export async function getPostsAsync(): Promise<Array<Post>> {
     }
 }
 
+export function postGivelike(post: Post): void {
+    try {
+        ++post.givelikeCount
+    } catch (error) {
+        return null
+    }
+}
+//#endregion
+
+//#region  post comments
 export async function getPostCommontsByIdAsync(post: Post): Promise<Array<PostComment>> {
     try {
         const response = await service.get<Array<PostComment>>(urls.getPostCommentById.replace(':id', `${post.id}`))
@@ -34,3 +47,12 @@ export async function getPostCommontsByIdAsync(post: Post): Promise<Array<PostCo
         return null
     }
 }
+
+export function commentGivelike(comment: PostComment): void {
+    try {
+        ++comment.givelikeCount
+    } catch (error) {
+        return null
+    }
+}
+//#endregion

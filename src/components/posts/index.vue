@@ -1,58 +1,72 @@
 <template>
-    <el-space direction="vertical" :size="10" v-for="post in data.posts" :key="post.id">
-        <el-card shadow="never">
-            <h3>{{ post.title }}</h3>
-            <p>{{ post.body }}</p>
-            <el-row style="margin-top: 10px;">
-                <el-col :span="3">
-                    <el-button type="primary" plain>
-                        <template #icon>
-                            <el-icon>
-                                <CaretTop />
-                            </el-icon>
-                        </template>
-                        <span>赞同</span>
-                    </el-button>
-                </el-col>
-                <el-col :span="3">
-                    <el-button type="primary" plain @click="getPostCommontsById(post)">
-                        <template #icon>
-                            <el-icon>
-                                <Comment />
-                            </el-icon>
-                        </template>
-                        <span>评论</span>
-                    </el-button>
-                </el-col>
-            </el-row>
-            <ul class="posts-comment-container" v-if="post.isshowComment">
-                <li v-for="commonte in post.commontes" class="comment-list">
-                    <div class="container-flex-row">
-                        <div style="width: 40px;">
-                            <el-icon>
-                                <Promotion />
-                            </el-icon>
-                        </div>
-                        <div class="comment-detail-container container-flex-column container-fill">
-                            <div>
-                                <h5>{{ commonte.name }}</h5>
+    <el-skeleton animated :loading="UIControl.renderLoading">
+        <el-space direction="vertical" :size="10" v-for="post in data.posts" :key="post.id">
+            <el-card shadow="never">
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.body }}</p>
+                <el-row style="margin-top: 10px;">
+                    <el-col :span="4">
+                        <el-button type="primary" plain @click="givePostLikeHandle(post)">
+                            <template #icon>
+                                <el-icon>
+                                    <CaretTop />
+                                </el-icon>
+                            </template>
+                            <label>赞同 <span>{{ post.givelikeCount }}</span> </label>
+                        </el-button>
+                    </el-col>
+                    <el-col :span="3">
+                        <el-button type="primary" plain @click="getPostCommontsById(post)" :loading="post.isloadedComment">
+                            <template #icon>
+                                <el-icon>
+                                    <Comment />
+                                </el-icon>
+                            </template>
+                            <span>评论</span>
+                        </el-button>
+                    </el-col>
+                </el-row>
+                <el-skeleton animated :loading="post.isloadedComment" style="margin-top: 10px;">
+                    <ul>
+                        <li v-for="comment in post.comments" class="comment-list">
+                            <div class="container-flex-row">
+                                <div class="comment-content container-flex-row container-fill">
+                                    <div style="width: 20px;">
+                                        <el-icon>
+                                            <Promotion />
+                                        </el-icon>
+                                    </div>
+                                    <div class="container-fill comment-detail-container container-flex-column">
+                                        <div>
+                                            <h5>{{ comment.name }}</h5>
+                                        </div>
+                                        <div class="comment-body">
+                                            {{ comment.body }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comment-operate">
+                                    <span class="iconfont icon-dianzan"></span>
+                                    <el-link :underline="false" @click="givePostCommentLikeHandle(comment)">
+                                        <span>{{ comment.givelikeCount }}</span>
+                                    </el-link>
+                                </div>
                             </div>
-                            <div class="comment-body">
-                                {{ commonte.body }}
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </el-card>
-    </el-space>
+                        </li>
+                    </ul>
+                </el-skeleton>
+            </el-card>
+        </el-space>
+    </el-skeleton>
     <el-backtop :right="100" :bottom="100" />
 </template>
 
 <script lang='ts'>
-import { defineComponent, onMounted, reactive } from 'vue'
-import { getPostsAsync, getPostCommontsByIdAsync, Post } from '@/api/api-posts'
+import { defineComponent, inject, onMounted, reactive } from 'vue'
+import { getPostsAsync, getPostCommontsByIdAsync, postGivelike, commentGivelike, Post } from '@/api/api-posts'
 import { CaretTop, Comment, Promotion } from '@element-plus/icons-vue'
+import { getRandomInt } from '@/common/utils'
+import { PostComment } from '@/api/api-posts'
 
 export default defineComponent({
     name: 'Posts',
@@ -63,29 +77,53 @@ export default defineComponent({
     },
     setup() {
 
+        //业务数据
         let posts: Array<Post> = new Array<Post>()
         let data = reactive({
             posts
         })
 
+        //UI控制
+        let UIControl = reactive({
+            renderLoading: true
+        })
+
         onMounted(() => {
-            getPostsAsync().then(res => data.posts = res)
+            getPostsAsync().then(res => {
+                res.map(p => {
+                    p.givelikeCount = getRandomInt(1, 200)
+                    p.isloadedComment = false
+                })
+                data.posts = res
+                UIControl.renderLoading = false
+            })
         })
 
         function getPostCommontsById(post: Post) {
-            if (post.isshowComment) {
-                post.isshowComment = false
-                return
-            }
+            post.isloadedComment = true
             getPostCommontsByIdAsync(post).then(res => {
-                post.commontes = res
-                post.isshowComment = true
+                res.map(c => {
+                    c.givelikeCount = getRandomInt(1, 1000)
+                })
+                post.comments = res
+                post.isloadedComment = false
             })
+        }
+
+        function givePostLikeHandle(post: Post) {
+            postGivelike(post)
+        }
+
+        function givePostCommentLikeHandle(comment: PostComment) {
+            commentGivelike(comment)
         }
 
         return {
             data,
-            getPostCommontsById
+            UIControl,
+            getPostCommontsById,
+            givePostLikeHandle,
+            givePostCommentLikeHandle
         }
     }
 })
@@ -103,12 +141,25 @@ export default defineComponent({
 }
 
 .comment-detail-container {
-    margin: 0 0 0 10px
+    margin: 0 10px
+}
+
+.comment-content {
+    justify-content: space-between;
 }
 
 .comment-body {
     overflow-wrap: break-word;
     color: rgb(68, 68, 68);
     margin-top: 4px;
+}
+
+.comment-operate {
+    width: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    font-size: 10px;
 }
 </style>

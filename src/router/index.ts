@@ -10,6 +10,7 @@ const routes: Array<RouteRecordRaw> = [
         path: "/home",
         name: "Home",
         component: Home,
+        redirect: "/home/posts",
         children: [
             {
                 path: "gluttony",

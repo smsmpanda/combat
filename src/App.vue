@@ -7,7 +7,7 @@
     </div>
 </template>
 <script  lang="ts">
-import { defineComponent, defineAsyncComponent } from 'vue';
+import { defineComponent, defineAsyncComponent, provide } from 'vue';
 
 export default defineComponent({
     name: 'App',

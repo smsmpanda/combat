@@ -1,6 +1,6 @@
 <template>
     <div class="home-container container-flex-row">
-        <div>
+        <div class="home-navmenu-container">
             <Navmenu />
         </div>
         <section class="home-content-container container-fill">
@@ -26,9 +26,13 @@ export default defineComponent({
 
 <style>
 .home-content-container {
-    padding: 0 10px
+    padding: 5px 10px;
+    background-color: #fff;
 }
 
+.home-navmenu-container {
+    margin-right: 10px;
+}
 
 .home-menu-nav {
     position: relative;
@@ -36,5 +40,6 @@ export default defineComponent({
 
 .home-container {
     position: relative;
+    min-height: 100%;
 }
 </style>
