@@ -1,6 +1,6 @@
 <template>
     <div class="nav-menu">
-        <el-menu :default-openeds="['1']" default-active="/home/posts" class="el-menu-vertical-demo"
+        <el-menu :default-openeds="['1']" :default-active="data.activePath" class="el-menu-vertical-demo"
             :collapse="data.isCollapse" :router="true">
             <el-sub-menu index="1">
                 <template #title>
@@ -74,6 +74,8 @@ import {
 
 } from '@element-plus/icons-vue'
 
+import { useRouter, useRoute } from 'vue-router'
+
 export default defineComponent({
     name: 'App',
     components: {
@@ -88,6 +90,7 @@ export default defineComponent({
 
         let data = reactive({
             isCollapse: false,
+            activePath: useRoute().path
         })
         return {
             data,
