@@ -8,7 +8,7 @@
                 <span>Home</span>
             </template>
         </el-menu-item>
-        <el-menu-item index="2"> Gongdan Center </el-menu-item>
+        <el-menu-item index="/foodheat"> Gongdan Center </el-menu-item>
         <div class="container-fill" />
         <el-menu-item index="/about">About</el-menu-item>
         <el-sub-menu index="3">

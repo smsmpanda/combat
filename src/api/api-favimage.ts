@@ -1,5 +1,5 @@
 import { ApiUri as urls } from "@/common/api-uri";
-import service from '@/common/https'
+import { service } from '@/common/https'
 
 export class FavImage {
     public id: number;

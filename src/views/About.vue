@@ -1,6 +1,6 @@
 <template>
     <div class="about-container">
-        About
+        <img src="https://s.boohee.cn/house/food_small/small_photo_20115241542116976.jpg">
     </div>
 </template>
 <script lang="ts">
