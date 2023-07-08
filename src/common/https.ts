@@ -33,7 +33,7 @@ export { service };
 // create axios instance
 let service2: AxiosInstance;
 service2 = axios.create({
-    baseURL: "https://api.thecatapi.com/v1/images/search?limit=1",
+    baseURL: "https://api.oioweb.cn/api",
     timeout: 5000
 });
 

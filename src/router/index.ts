@@ -33,6 +33,12 @@ const routes: Array<RouteRecordRaw> = [
         ]
     },
     {
+        path: "/foodheat",
+        name: "FoodHeat",
+        component: () =>
+            import('../views/Foodheat.vue')
+    },
+    {
         path: "/about",
         name: "About",
         component: () =>

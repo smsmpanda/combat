@@ -62,11 +62,10 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent, inject, onMounted, reactive } from 'vue'
-import { getPostsAsync, getPostCommontsByIdAsync, postGivelike, commentGivelike, Post } from '@/api/api-posts'
+import { defineComponent, onMounted, reactive } from 'vue'
+import { getPostsAsync, getPostCommontsByIdAsync, postGivelike, commentGivelike, PostComment, Post } from '@/api/api-posts'
 import { CaretTop, Comment, Promotion } from '@element-plus/icons-vue'
 import { getRandomInt } from '@/common/utils'
-import { PostComment } from '@/api/api-posts'
 
 export default defineComponent({
     name: 'Posts',
