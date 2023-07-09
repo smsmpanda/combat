@@ -1,23 +1,26 @@
 <template>
- <div>
-    <div>{{txt}}</div>
-     <router-view></router-view>
-    <router-link to="/main">Go to Foo</router-link>
-    <router-link to="/user">Go to Bar</router-link>
- </div>
+    <Nav class="app-nav" />
+    <div class="container-fill banner">
+        <router-view>
+
+        </router-view>
+    </div>
 </template>
-<script>
-export default {
-    name:'App',
-    data(){
-        return {
-            txt:'这是App.vue'
-        }
+<script  lang="ts">
+import { defineComponent, defineAsyncComponent, provide } from 'vue';
+
+export default defineComponent({
+    name: 'App',
+    components: {
+        Nav: defineAsyncComponent(() => import('@/components/Nav.vue'))
     }
-}
+})
 </script>
-<style>
-div{
-    color:red;
+
+<style lang="less">
+.app-nav {
+    position: sticky !important;
+    top: 0;
+    z-index: 999;
 }
 </style>

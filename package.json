@@ -1,42 +1,33 @@
 {
-  "name": "kungfutypescript",
-  "version": "1.0.0",
-  "description": "Learning",
-  "main": "app.js",
+  "name": "kungfuchild",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "build": "webpack",
-    "dev": "webpack-dev-server",
-    "watch": "webpack --watch"
+    "dev": "vue-cli-service serve",
+    "build": "vue-cli-service build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/smsmpanda/KungfuTypeScript.git"
-  },
-  "keywords": [
-    "TypeScript"
-  ],
-  "author": "smsmpanda",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/smsmpanda/KungfuTypeScript/issues"
-  },
-  "homepage": "https://github.com/smsmpanda/KungfuTypeScript#readme",
   "dependencies": {
-    "element-ui": "^2.15.13",
-    "vue": "^2.7.14",
-    "vue-router": "^3.6.5",
-    "webpack": "^5.75.0"
+    "axios": "^1.4.0",
+    "core-js": "^3.8.3",
+    "element-plus": "^2.3.7",
+    "less": "^4.1.3",
+    "less-loader": "^11.1.3",
+    "vue": "^3.2.13",
+    "vue-router": "^4.0.3",
+    "vuex": "^4.0.0"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.20.2",
-    "@babel/preset-typescript": "^7.18.6",
-    "babel-loader": "^9.1.0",
-    "css-loader": "^6.7.3",
-    "html-webpack-plugin": "^5.5.0",
-    "style-loader": "^3.3.2",
-    "vue-loader": "^15.10.1",
-    "vue-template-compiler": "^2.7.14",
-    "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^4.11.1"
-  }
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-plugin-typescript": "~5.0.0",
+    "@vue/cli-plugin-vuex": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "typescript": "~4.5.5"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
 }

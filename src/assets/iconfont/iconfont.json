@@ -1,0 +1,16 @@
+{
+  "id": "4156585",
+  "name": "actualcombat",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "398899",
+      "name": "点赞",
+      "font_class": "dianzan",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    }
+  ]
+}
