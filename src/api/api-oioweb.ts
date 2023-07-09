@@ -1,9 +1,9 @@
 import { ApiUri as urls } from "@/common/api-uri";
 import { service2 } from '@/common/https'
 
-export interface FoodResponse {
+export interface FoodResponse<T> {
     code: string
-    result: Array<FoodHeat>
+    result: T
     msg: string
 }
 
@@ -14,9 +14,9 @@ export class FoodHeat {
     heat: string
 }
 
-export async function getSeachFoodheatAsnyc(searchKey: string): Promise<FoodResponse> {
+export async function getSeachFoodheatAsnyc(searchKey: string): Promise<FoodResponse<Array<FoodHeat>>> {
     try {
-        const response = await service2.get<FoodResponse>(urls.getSeachFoodheat, {
+        const response = await service2.get<FoodResponse<Array<FoodHeat>>>(urls.getSeachFoodheat, {
             params: {
                 keyword: searchKey,
                 page: 1

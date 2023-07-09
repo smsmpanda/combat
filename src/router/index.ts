@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router"
 import Home from "@/views/Home.vue"
+import Foodheat from "@/views/Foodheat.vue"
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -28,15 +29,14 @@ const routes: Array<RouteRecordRaw> = [
                 path: "favimg",
                 name: "Favimg",
                 component: () =>
-                    import('@/components/favimage/index.vue')
+                    import('@/components/daily/index.vue')
             }
         ]
     },
     {
         path: "/foodheat",
         name: "FoodHeat",
-        component: () =>
-            import('../views/Foodheat.vue')
+        component: Foodheat
     },
     {
         path: "/about",

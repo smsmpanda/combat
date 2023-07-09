@@ -1,5 +1,5 @@
 <template>
-    <el-menu :default-active="data.activeIndex" class="el-menu-demo" mode="horizontal" :ellipsis="false" :router="true">
+    <el-menu :default-active="data.activePath" class="el-menu-demo" mode="horizontal" :ellipsis="false" :router="true">
         <el-menu-item index="/">
             <template #title>
                 <el-icon>
@@ -40,9 +40,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from 'vue';
+import { defineComponent, onMounted, reactive } from 'vue';
 import { HomeFilled, Menu, User, Guide } from '@element-plus/icons-vue'
-
+import { useRoute } from 'vue-router';
 
 export default defineComponent({
     name: 'App',
@@ -53,9 +53,14 @@ export default defineComponent({
         Guide
     },
     setup() {
+
         const data = reactive({
-            activeIndex: '/'
+            activePath: ''
         });
+
+        onMounted(() => {
+            data.activePath = useRoute().path
+        })
 
         return {
             data

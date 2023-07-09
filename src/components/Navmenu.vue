@@ -1,6 +1,5 @@
 <template>
-    <el-menu :default-openeds="['1']" :default-active="data.activePath" class="el-menu-vertical-demo" style="height: 100%;"
-        :collapse="data.isCollapse" :router="true">
+    <el-menu :default-active="data.activePath" style="height: 100%;" :collapse="data.isCollapse" :router="true">
         <el-sub-menu index="1">
             <template #title>
                 <el-icon>
@@ -44,7 +43,7 @@
                     <el-icon>
                         <camera-filled />
                     </el-icon>
-                    <span class="nav-menu-title">Favorite Image</span>
+                    <span class="nav-menu-title"> One Day English</span>
                 </template>
             </el-menu-item>
         </el-sub-menu>
@@ -72,7 +71,7 @@ import {
 
 } from '@element-plus/icons-vue'
 
-import { useRouter, useRoute } from 'vue-router'
+import { useRoute } from 'vue-router'
 
 export default defineComponent({
     name: 'App',
@@ -85,7 +84,6 @@ export default defineComponent({
         CameraFilled
     },
     setup() {
-
         let data = reactive({
             isCollapse: false,
             activePath: useRoute().path

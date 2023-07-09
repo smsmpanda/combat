@@ -1,6 +1,12 @@
-export interface ResponseWrapper<T = any> {
+export interface ResponseWrapperV1<T = any> {
     code: number;
     message: string;
+    result: T
+}
+
+export interface ResponseWrapperV2<T = any> {
+    code: number;
+    msg: string;
     result: T
 }
 

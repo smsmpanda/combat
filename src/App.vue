@@ -1,7 +1,9 @@
 <template>
     <Nav class="app-nav" />
     <div class="container-fill banner">
-        <router-view></router-view>
+        <router-view>
+
+        </router-view>
     </div>
 </template>
 <script  lang="ts">
