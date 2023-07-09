@@ -1,9 +1,7 @@
 <template>
-    <div class="container-flex-column">
-        <Nav class="app-nav" />
-        <div class="container-fill banner">
-            <router-view></router-view>
-        </div>
+    <Nav class="app-nav" />
+    <div class="container-fill banner">
+        <router-view></router-view>
     </div>
 </template>
 <script  lang="ts">

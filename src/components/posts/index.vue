@@ -1,11 +1,11 @@
 <template>
     <el-skeleton animated :loading="UIControl.renderLoading">
-        <el-space direction="vertical" :size="10" v-for="post in data.posts" :key="post.id">
-            <el-card shadow="never">
+        <el-space :fill="true" :size="20">
+            <el-card shadow="never" v-for="post in data.posts" :key="post.id">
                 <h3>{{ post.title }}</h3>
                 <p>{{ post.body }}</p>
                 <el-row style="margin-top: 10px;">
-                    <el-col :span="4">
+                    <el-col :span="2">
                         <el-button type="primary" plain @click="givePostLikeHandle(post)">
                             <template #icon>
                                 <el-icon>
@@ -15,7 +15,7 @@
                             <label>赞同 <span>{{ post.givelikeCount }}</span> </label>
                         </el-button>
                     </el-col>
-                    <el-col :span="3">
+                    <el-col :span="2">
                         <el-button type="primary" plain @click="getPostCommontsById(post)" :loading="post.isloadedComment">
                             <template #icon>
                                 <el-icon>
@@ -84,7 +84,7 @@ export default defineComponent({
 
         //UI控制
         let UIControl = reactive({
-            renderLoading: true
+            renderLoading: true,
         })
 
         onMounted(() => {

@@ -26,12 +26,14 @@ export default defineComponent({
 
 <style>
 .home-content-container {
-    padding: 5px 10px;
+    padding: 5px 5px;
     background-color: #fff;
+    overflow: auto;
 }
 
 .home-navmenu-container {
-    margin-right: 10px;
+    width: 200px;
+    margin-right: 5px;
 }
 
 .home-menu-nav {
@@ -40,6 +42,6 @@ export default defineComponent({
 
 .home-container {
     position: relative;
-    min-height: 100%;
+    height: 100%;
 }
 </style>

@@ -1,64 +1,62 @@
 <template>
-    <div class="nav-menu">
-        <el-menu :default-openeds="['1']" :default-active="data.activePath" class="el-menu-vertical-demo"
-            :collapse="data.isCollapse" :router="true">
-            <el-sub-menu index="1">
-                <template #title>
-                    <el-icon>
-                        <location />
-                    </el-icon>
-                    <span class="nav-menu-title">Navigator One</span>
-                </template>
-                <el-menu-item index="/home/posts">
-                    <template #title>
-                        <el-icon>
-                            <document />
-                        </el-icon>
-                        <span>Posts Center</span>
-                    </template>
-                </el-menu-item>
-            </el-sub-menu>
-            <el-sub-menu index="2">
-                <template #title>
-                    <el-icon>
-                        <icon-menu />
-                    </el-icon>
-                    <span class="nav-menu-title">Navigator Two</span>
-                </template>
-                <el-menu-item index="/home/gluttony">
-                    <template #title>
-                        <el-icon>
-                            <setting />
-                        </el-icon>
-                        <span class="nav-menu-title">Gluttony</span>
-                    </template>
-                </el-menu-item>
-            </el-sub-menu>
-            <el-sub-menu index="3">
+    <el-menu :default-openeds="['1']" :default-active="data.activePath" class="el-menu-vertical-demo" style="height: 100%;"
+        :collapse="data.isCollapse" :router="true">
+        <el-sub-menu index="1">
+            <template #title>
+                <el-icon>
+                    <location />
+                </el-icon>
+                <span class="nav-menu-title">菜单一</span>
+            </template>
+            <el-menu-item index="/home/posts">
                 <template #title>
                     <el-icon>
                         <document />
                     </el-icon>
-                    <span class="nav-menu-title"> Navigator Three</span></template>
-                <el-menu-item index="/home/favimg">
-                    <template #title>
-                        <el-icon>
-                            <camera-filled />
-                        </el-icon>
-                        <span class="nav-menu-title">Favorite Image</span>
-                    </template>
-                </el-menu-item>
-            </el-sub-menu>
-            <el-sub-menu index="4">
+                    <span>Posts Center</span>
+                </template>
+            </el-menu-item>
+        </el-sub-menu>
+        <el-sub-menu index="2">
+            <template #title>
+                <el-icon>
+                    <icon-menu />
+                </el-icon>
+                <span class="nav-menu-title">菜单二</span>
+            </template>
+            <el-menu-item index="/home/gluttony">
                 <template #title>
                     <el-icon>
                         <setting />
                     </el-icon>
-                    <span class="nav-menu-title">Children Games</span>
+                    <span class="nav-menu-title">Gluttony</span>
                 </template>
-            </el-sub-menu>
-        </el-menu>
-    </div>
+            </el-menu-item>
+        </el-sub-menu>
+        <el-sub-menu index="3">
+            <template #title>
+                <el-icon>
+                    <document />
+                </el-icon>
+                <span class="nav-menu-title"> 菜单三</span></template>
+            <el-menu-item index="/home/favimg">
+                <template #title>
+                    <el-icon>
+                        <camera-filled />
+                    </el-icon>
+                    <span class="nav-menu-title">Favorite Image</span>
+                </template>
+            </el-menu-item>
+        </el-sub-menu>
+        <el-sub-menu index="4">
+            <template #title>
+                <el-icon>
+                    <setting />
+                </el-icon>
+                <span class="nav-menu-title">菜单四</span>
+            </template>
+        </el-sub-menu>
+    </el-menu>
 </template>
 
 <script lang='ts'>
