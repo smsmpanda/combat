@@ -17,32 +17,32 @@
             </template>
         </el-menu-item>
         <div class="container-fill" />
+        <el-menu-item @click="gotoCreationCenter">
+            <template #title>
+                <el-icon>
+                    <DataBoard />
+                </el-icon>
+                <span>创作中心</span>
+            </template>
+        </el-menu-item>
         <el-sub-menu index="3">
             <template #title>
                 <el-icon>
                     <User />
                 </el-icon>
-                <span>Workspace</span>
+                <span>个人空间</span>
             </template>
             <el-menu-item index="3-1">item one</el-menu-item>
             <el-menu-item index="3-2">item two</el-menu-item>
             <el-menu-item index="3-3">item three</el-menu-item>
         </el-sub-menu>
-        <el-menu-item index="/about">
-            <template #title>
-                <el-icon>
-                    <Guide />
-                </el-icon>
-                <span>About</span>
-            </template>
-        </el-menu-item>
     </el-menu>
 </template>
 
 <script lang="ts">
 import { defineComponent, onMounted, reactive } from 'vue';
-import { HomeFilled, Menu, User, Guide } from '@element-plus/icons-vue'
-import { useRoute } from 'vue-router';
+import { HomeFilled, Menu, User, Guide, DataBoard } from '@element-plus/icons-vue'
+import { useRoute, useRouter } from 'vue-router';
 
 export default defineComponent({
     name: 'App',
@@ -50,20 +50,27 @@ export default defineComponent({
         HomeFilled,
         Menu,
         User,
-        Guide
+        Guide,
+        DataBoard
     },
     setup() {
 
+        const route = useRoute()
         const data = reactive({
             activePath: ''
         });
 
         onMounted(() => {
-            data.activePath = useRoute().path
+            data.activePath = route.path
         })
 
+        const gotoCreationCenter = (e) => {
+            window.open('/create', '_blank')
+        }
+
         return {
-            data
+            data,
+            gotoCreationCenter
         }
     }
 })
