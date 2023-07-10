@@ -46,7 +46,7 @@
                                     </div>
                                 </div>
                                 <div class="comment-operate">
-                                    <span class="iconfont icon-dianzan"></span>
+                                    <i class="iconfont iconcolor">&#xe621;</i>
                                     <el-link :underline="false" @click="givePostCommentLikeHandle(comment)">
                                         <span>{{ comment.givelikeCount }}</span>
                                     </el-link>
@@ -127,7 +127,7 @@ export default defineComponent({
     }
 })
 </script>
-<style>
+<style lang="less">
 .posts-comment-container {
     border: 1px solid var(--el-border-color);
     border-radius: var(--el-border-radius-base);
