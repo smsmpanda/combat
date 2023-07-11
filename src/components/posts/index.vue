@@ -1,11 +1,11 @@
 <template>
-    <el-skeleton animated :loading="UIControl.renderLoading">
-        <el-space :fill="true" :size="20">
-            <el-card shadow="never" v-for="post in data.posts" :key="post.id">
+    <ElSkeleton animated :loading="UIControl.renderLoading">
+        <Elspace :fill="true" :size="20">
+            <ElCard shadow="never" v-for="post in data.posts" :key="post.id">
                 <h3>{{ post.title }}</h3>
                 <p>{{ post.body }}</p>
-                <el-row style="margin-top: 10px;">
-                    <el-col :span="2">
+                <ElRow style="margin-top: 10px;">
+                    <ElCol :span="2">
                         <el-button type="primary" plain @click="givePostLikeHandle(post)">
                             <template #icon>
                                 <el-icon>
@@ -14,8 +14,8 @@
                             </template>
                             <label>赞同 <span>{{ post.givelikeCount }}</span> </label>
                         </el-button>
-                    </el-col>
-                    <el-col :span="2">
+                    </ElCol>
+                    <ElCol :span="2">
                         <el-button type="primary" plain @click="getPostCommontsById(post)" :loading="post.isloadedComment">
                             <template #icon>
                                 <el-icon>
@@ -24,17 +24,17 @@
                             </template>
                             <span>评论</span>
                         </el-button>
-                    </el-col>
-                </el-row>
-                <el-skeleton animated :loading="post.isloadedComment" style="margin-top: 10px;">
+                    </ElCol>
+                </ElRow>
+                <ElSkeleton animated :loading="post.isloadedComment" style="margin-top: 10px;">
                     <ul>
                         <li v-for="comment in post.comments" class="comment-list">
                             <div class="container-flex-row">
                                 <div class="comment-content container-flex-row container-fill">
                                     <div style="width: 20px;">
-                                        <el-icon>
+                                        <ElIcon>
                                             <Promotion />
-                                        </el-icon>
+                                        </ElIcon>
                                     </div>
                                     <div class="container-fill comment-detail-container container-flex-column">
                                         <div>
@@ -47,17 +47,17 @@
                                 </div>
                                 <div class="comment-operate">
                                     <i class="iconfont iconcolor">&#xe621;</i>
-                                    <el-link :underline="false" @click="givePostCommentLikeHandle(comment)">
+                                    <ElLink :underline="false" @click="givePostCommentLikeHandle(comment)">
                                         <span>{{ comment.givelikeCount }}</span>
-                                    </el-link>
+                                    </ElLink>
                                 </div>
                             </div>
                         </li>
                     </ul>
-                </el-skeleton>
-            </el-card>
-        </el-space>
-    </el-skeleton>
+                </ElSkeleton>
+            </ElCard>
+        </Elspace>
+    </ElSkeleton>
     <el-backtop :right="100" :bottom="100" />
 </template>
 
@@ -72,7 +72,7 @@ export default defineComponent({
     components: {
         CaretTop,
         Comment,
-        Promotion
+        Promotion,
     },
     setup() {
 

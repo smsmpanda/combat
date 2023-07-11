@@ -4,7 +4,7 @@
             <Navmenu />
         </div>
         <section class="home-content-container container-fill">
-            <router-view></router-view>
+            <RouterView></RouterView>
         </section>
     </div>
 </template>

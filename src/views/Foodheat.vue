@@ -2,28 +2,28 @@
     <div class="container-base foodheat-container">
         <div class="footheat-search-container">
             <span class="foodheat-search-title"> 😊 </span>
-            <el-input clearable autofocus style="width:300px" v-model="data.searchKeyword" class="w-50 m-2" size="large"
+            <ElInput clearable autofocus style="width:300px" v-model="data.searchKeyword" class="w-50 m-2" size="large"
                 placeholder="请输入关键字" @keydown="keyEnterHandle">
-            </el-input>
+            </ElInput>
             <span class="foodheat-search-title"> 🔍 </span>
         </div>
-        <el-empty v-show="UIControl.noResult" description=" "></el-empty>
-        <el-skeleton animated :loading="UIControl.renderLoading">
-            <el-space wrap alignment="start">
-                <el-card shadow="hover" style="width:250px;height: auto;" v-for="(foodHeat, index) in data.foodHeat"
-                    :key="index" v-infinite-scroll="InfiteLoad">
+        <ElEmpty v-show="UIControl.noResult" description=" "></ElEmpty>
+        <ElSkeleton animated :loading="UIControl.renderLoading">
+            <ElSpace wrap alignment="start">
+                <ElCard shadow="hover" style="width:250px;height: auto;" v-for="(foodHeat, index) in data.foodHeat"
+                    :key="index">
                     <template #header>
                         <div class="card-header">
                             <h4>{{ foodHeat.name }}</h4>
                         </div>
                     </template>
 
-                    <el-image lazy :src="foodHeat.img"></el-image>
+                    <ElImage lazy :src="foodHeat.img"></ElImage>
                     <p>{{ foodHeat.desc }}</p>
                     <p>{{ foodHeat.heat }}</p>
-                </el-card>
-            </el-space>
-        </el-skeleton>
+                </ElCard>
+            </ElSpace>
+        </ElSkeleton>
     </div>
     <el-backtop :right="100" :bottom="100" />
 </template>
@@ -37,7 +37,7 @@ import { ElMessage } from 'element-plus'
 export default defineComponent({
     name: 'App',
     components: {
-        Search
+        Search,
     },
     setup() {
 
@@ -74,15 +74,10 @@ export default defineComponent({
             })
         }
 
-        function InfiteLoad() {
-            console.log(1)
-        }
-
         return {
             data,
             UIControl,
-            keyEnterHandle,
-            InfiteLoad
+            keyEnterHandle
         }
     }
 })

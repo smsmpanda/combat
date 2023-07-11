@@ -1,6 +1,6 @@
 <template>
     <el-space direction="horizontal">
-        <img style="width: 500px;" lazy :src="data.oneDayEnglish.img" />
+        <ElImage style="width: 500px;" lazy :src="data.oneDayEnglish.img"></ElImage>
         <div>
             <div>{{ data.oneDayEnglish.content }}</div>
             <div>{{ data.oneDayEnglish.dateline }}</div>
@@ -14,22 +14,19 @@ import { defineComponent, onMounted, reactive } from 'vue'
 import { getOneDayEnglishAsync, Daily } from '@/api/api-daily'
 
 export default defineComponent({
-    name: 'OneDaily',
+    name: "OneDaily",
     setup() {
-
-        let oneDayEnglish = new Daily()
+        let oneDayEnglish = new Daily();
         let data = reactive({
             oneDayEnglish,
             showDialog: true
-        })
-
+        });
         onMounted(() => {
-            getOneDayEnglishAsync().then(res => data.oneDayEnglish = res.result)
-        })
-
+            getOneDayEnglishAsync().then(res => data.oneDayEnglish = res.result);
+        });
         return {
             data
-        }
+        };
     }
 })
-</script>@/api/api-daily
+</script>
