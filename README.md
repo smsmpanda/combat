@@ -11,4 +11,4 @@
 * http://jsonplaceholder.typicode.com
 
 #### ❓️ 说明
-* 学习`vue3`、`element-plus`、`TypeScript`、`WebPack`的基础用法
+* `vue3`、`element-plus`、`TypeScript`、`WebPack`实践
