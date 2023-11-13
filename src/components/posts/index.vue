@@ -1,7 +1,7 @@
 <template>
     <ElSkeleton animated :loading="UIControl.renderLoading">
-        <Elspace :fill="true" :size="20">
-            <ElCard shadow="never" v-for="post in data.posts" :key="post.id">
+        <ElSpace fill alignment="flex-start" direction="vertical" :size="10">
+            <ElCard v-for="post in data.posts" :key="post.id">
                 <h3>{{ post.title }}</h3>
                 <p>{{ post.body }}</p>
                 <ElRow style="margin-top: 10px;">
@@ -56,9 +56,8 @@
                     </ul>
                 </ElSkeleton>
             </ElCard>
-        </Elspace>
+        </ElSpace>
     </ElSkeleton>
-    <el-backtop :right="100" :bottom="100" />
 </template>
 
 <script lang='ts'>

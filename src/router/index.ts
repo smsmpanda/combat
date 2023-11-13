@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router"
 import Home from "@/views/Home.vue"
-import Foodheat from "@/views/Foodheat.vue"
+import Foodheat from "@/components/Foodheat.vue"
 
 const routes: Array<RouteRecordRaw> = [
     {
